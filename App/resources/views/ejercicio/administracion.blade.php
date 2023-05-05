@@ -54,12 +54,12 @@ background: url('../imagenes/p2.jpg');
         <form id="editarPerfil" action="{{asset('admin/editarPerfil')}}" method="post">
           @csrf
           <div class="col-12 mb-4 form__group field text-left">
-            <input type="input" class="form__field" value="{{$usuario->email}}"placeholder="email" name="email" id='email' required disabled style ="color:#9b9b9b"/>
+            <input type="input" class="form__field" value="{{$usuario->email}}"placeholder="email" name="email" id='email' required readonly style ="color:#9b9b9b"/>
             {!!$errors->first('email','<small class="errores" style="color:red;">:message</small>')!!}
             <label for="email" class="form__label">Email</label>
           </div>
           <div class="col-12 mb-4 form__group field text-left">
-            <input type="input" class="form__field" value="{{$usuario->name}}"placeholder="nombre" name="nombre" id='nombre' required disabled style ="color:#9b9b9b"/>
+            <input type="input" class="form__field" value="{{$usuario->name}}"placeholder="nombre" name="nombre" id='nombre' required readonly style ="color:#9b9b9b"/>
             {!!$errors->first('nombre','<small class="errores"  style="color:red;">:message</small>')!!}
             <label for="nombre" class="form__label">Nombre del usuario</label>
           </div>
