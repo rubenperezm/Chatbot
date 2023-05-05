@@ -45,12 +45,14 @@ class EjercicioController extends Controller
         $todosIntermedios = false;
         $flag = false;
         $ejerciciosResuelto = json_decode(auth()->user()->ejerciciosResueltos,true);
+        $year = date("Y");
         //ranking de finalización de los ejercicios
         $completados = Logs::select("user_id","alias","logs.created_at")
           ->leftJoin('users','user_id', '=','users.id')
           ->where("completado",2)
           ->where("ejercicio_id",$id)
           ->where("esProfesor", '=', 0)
+          ->whereYear("logs.created_at", $year)
           ->orderBy("logs.created_at")
           ->get();
        $unique = $completados->unique('user_id');
